@@ -1,0 +1,44 @@
+
+<html>
+    <head>
+          <link rel="stylesheet" type="text/css" href="css/default.css">
+        
+        <title>Prison Man</title>
+        <meta charset="UTF-8">
+    </head>
+    
+    <body>
+        <h1 id="title">Will you help prison man?</h1>
+        <audio id="audio" src="sounds/let-me-out-of-here-1.wav" preload="auto"></audio>
+        <img src="images/prisonMan.png" onmouseover="onMouseOver()" onmouseout="onMouseOut()" alt="Prison man" width="196" height="203">
+        <h5 id="help">Why not press the button already?</h5>
+        <form id="form" onsubmit="reportBack();return false;">
+        <input id="submit" type="submit" value="Save">
+        </form>
+        
+                    <script>
+                var count = 0;
+                function onMouseOver() {
+                    document.getElementById("title").style.color = "red";
+                    document.getElementById("audio").play();
+                    count++;
+                    if(count === 7)
+                        document.getElementById("help").style.color = "red";
+                }
+                function onMouseOut() {
+                    document.getElementById("title").style.color = "black";
+                }
+                function reportBack() {
+                    console.log("it took you " + count +" times of hearing the man complain to save him.");
+                    var text = document.getElementById("footer");
+                    text.innerHTML = "You looked at him: " + count +" time(s)<br>\n\
+                    Also, as you can see, the bars are wide enough apart that you need not worry, he could\n\
+                    get out the whole time.";
+                    count = 0;
+                    document.getElementById("help").style.color = "black";
+                }
+            </script>
+        
+            <footer id="footer"></footer>
+    </body>
+</html>
